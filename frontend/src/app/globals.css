@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0a0a0f;
+  --bg-card: #111118;
+  --bg-border: #1e1e2a;
+  --accent-green: #00d084;
+  --accent-yellow: #f5a623;
+  --accent-red: #ff4757;
+  --accent-blue: #3b82f6;
+}
+
+* { box-sizing: border-box; }
+
+body { background: var(--bg); color: #f9fafb; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #1e1e2a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #2d2d3d; }
+
+.status-dot-healthy { background: #00d084; box-shadow: 0 0 6px #00d08480; }
+.status-dot-warning { background: #f5a623; box-shadow: 0 0 6px #f5a62380; }
+.status-dot-degraded { background: #ff8c42; box-shadow: 0 0 6px #ff8c4280; }
+.status-dot-critical { background: #ff4757; box-shadow: 0 0 6px #ff475780; }
+.status-dot-offline { background: #4b5563; }
+.status-dot-unknown { background: #374151; }
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: inherit;
+  animation: pulse-ring 2s ease-out infinite;
+  opacity: 0.4;
+}
